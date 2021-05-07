@@ -17,13 +17,13 @@ if(tmpName[cntr] <= 122 && tmpName[cntr] >= 97)
 tmpName[cntr] -= 32;
 
 if(strcmp(tmpName, "END") == 0) {
-std::cerr << "END is not name of type." << std::endl;
+std::cerr << "END is not the name of a species." << std::endl;
 exit(1);
 }
 
 std::ifstream inFile("database.dat", std::ios::in);
 if(!inFile) {
-std::cerr << "\"Error: File 'database.dat' could not be located.\"" << std::endl;
+std::cerr << "\"Error: File 'database.dat' does not exist.\"" << std::endl;
 exit(1);
 }
 
@@ -41,7 +41,7 @@ inFile.seekg(index*step+comment, std::ios::beg);
 index++;
 } while(inFile.tellg() < sizeOfFile);
 if(nameExist == false) {
-std::cerr << tmpName << " does not found in database." << std::endl;
+std::cerr << tmpName << " was not found in the database." << std::endl;
 exit(1);
 }
 
